@@ -15,8 +15,8 @@ fun main() {
 
 
     println("Добашнее задание №2")
-    val likes = 11
-    if (likes % 10 == 1 && likes != 11) {
+    val likes = 1011
+    if (likes % 10 == 1 && likes % 100 != 11) {
         println("Понравилось " + likes + " человеку")
     } else {
         println("Понравилось " + likes + " людям")
@@ -24,20 +24,22 @@ fun main() {
 
 
     println("Добашнее задание №3")
-    val purchase = 10001
+    val purchase = 999
     val regular = true
     val baseDiscount = 100
     val advancedDiscount = 0.95
-    val regularDiscount = 0.99
+    var regularDiscount = 0.99
+
+    if (regular != true) {
+        regularDiscount = 1.0
+    }
 
     if (purchase < 1001) {
-        println("Итоговая стоимость покупки: " + purchase)
+        println("Итоговая стоимость покупки: " + (purchase  * regularDiscount))
     } else if (purchase > 1000 && purchase < 10001) {
-        println("Итоговая стоимость покупки: " + (purchase - baseDiscount))
-    } else if (purchase > 10000 && regular == true) {
-        println("Итоговая стоимость покупки: " + (purchase * advancedDiscount * regularDiscount))
+        println("Итоговая стоимость покупки: " + ((purchase - baseDiscount)  * regularDiscount))
     } else {
-        println("Итоговая стоимость покупки: " + (purchase * advancedDiscount))
+        println("Итоговая стоимость покупки: " + (purchase * advancedDiscount * regularDiscount))
     }
 
 
